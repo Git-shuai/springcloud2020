@@ -1,0 +1,43 @@
+package com.tian.springcloud.controller;
+
+import com.tian.springcloud.entities.CommonResult;
+import com.tian.springcloud.entities.Payment;
+import com.tian.springcloud.service.PaymentService;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+/**
+ * @author tian
+ * @date 2020/7/18
+ */
+@RestController
+@Slf4j
+public class PaymentController {
+
+    @Autowired
+    private PaymentService paymentService;
+
+    @PostMapping("/payment/create")
+    public CommonResult<Payment> create(@RequestBody Payment payment) {
+        int result = paymentService.create(payment);
+        log.info("****结果是:{}", result);
+        if (result > 0) {
+            return new CommonResult<Payment>(200, "插入数据库成功", payment);
+        } else {
+            return new CommonResult<Payment>(444, "插入数据库失败", null);
+        }
+    }
+
+
+    @GetMapping("/payment/get/{id}")
+    public CommonResult<Payment> getPaymentById(@PathVariable("id") Long id) {
+        Payment payment = paymentService.getPaymentById(id);
+        log.info("****结果是:{}O(∩_∩)O哈哈", payment);
+        if (payment != null) {
+            return new CommonResult<Payment>(200, "查询成功", payment);
+        } else {
+            return new CommonResult<Payment>(444, "没有对应记录", null);
+        }
+    }
+}
