@@ -1,4 +1,4 @@
-package com.tian.springcloud.config;
+package com.tian.myrule;
 
 import com.netflix.loadbalancer.IRule;
 import com.netflix.loadbalancer.RandomRule;
@@ -7,14 +7,13 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * @author tian
- * @date 2020/7/21
+ * @date 2020/7/23
  */
 @Configuration
-public class MySelfRule
-{
+public class MySelfRule {
+
     @Bean
-    public IRule myRule()
-    {
-        return new RandomRule();//定义为随机
+    public IRule getIRule(){
+        return new RandomRule();  //随机规则
     }
 }

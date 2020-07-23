@@ -25,9 +25,9 @@ public class OrderZkController {
     private RestTemplate restTemplate;
 
 
-    @GetMapping("/consumer/payment/zk")
+    @GetMapping("/consumer/payment/consul")
     public String zk(){
-        return restTemplate.getForObject(PAYMENT_URL+"/payment/zk",String.class);
+        return restTemplate.getForObject(PAYMENT_URL+"/payment/consul",String.class);
     }
 
 }
