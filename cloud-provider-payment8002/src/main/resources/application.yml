@@ -33,4 +33,9 @@ mybatis:
   mapperLocations: classpath:mapper/*.xml
   type-aliases-package: com.tian.springcloud.entities    # 所有Entity别名类所在包
 
-
+logging:
+  level:
+    com:
+      tian:
+        springcloud:
+          dao: debug
