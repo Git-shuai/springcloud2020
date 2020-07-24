@@ -16,7 +16,6 @@ import javax.annotation.Resource;
 @Slf4j
 public class OrderZkController {
 
-
     //public static final String PAYMENT_URL="http://localhost:8001";
 
     public static final String PAYMENT_URL = "http://cloud-payment-service";
@@ -26,8 +25,8 @@ public class OrderZkController {
 
 
     @GetMapping("/consumer/payment/consul")
-    public String zk(){
-        return restTemplate.getForObject(PAYMENT_URL+"/payment/consul",String.class);
+    public String zk() {
+        return restTemplate.getForObject(PAYMENT_URL + "/payment/consul", String.class);
     }
 
 }
