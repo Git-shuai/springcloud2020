@@ -11,3 +11,6 @@ eureka:
     application:
       name: cloud-provider-hystrix-order
 
+feign:
+  hystrix:
+    enabled: true
